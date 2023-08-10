@@ -1,12 +1,14 @@
 nav{
     position: relative;
     width: 100%;
+
     // center the nav
     display: flex;
     justify-content: center;
     align-items: center;
     
-   a{
-    margin-left: 20px;
-   } 
+    // add spacing between nav items
+    a{
+        margin: 0 1rem;
+    }
 }

@@ -3,7 +3,9 @@
 async fn main() -> std::io::Result<()> {
     use actix_files::Files;
     use actix_web::*;
+    use actix_web::dev::Service;
     use actix_web::middleware::Logger;
+    use futures_util::FutureExt;
     use env_logger::Env;        
     use leptos::*;
     use leptos_actix::{generate_route_list, LeptosRoutes};
@@ -29,6 +31,7 @@ async fn main() -> std::io::Result<()> {
             .service(Files::new("/assets", site_root))
             // serve the favicon from /favicon.ico
             .service(favicon)
+
             .leptos_routes(
                 leptos_options.to_owned(),
                 routes.to_owned(),
@@ -36,7 +39,18 @@ async fn main() -> std::io::Result<()> {
             )
             .app_data(web::Data::new(leptos_options.to_owned()))
         .wrap(Logger::default())
-        //.wrap(middleware::Compress::default())
+        .wrap_fn(|req, srv| {
+            let should_resize = (req.path().ends_with(".jpg") || req.path().ends_with(".png") ) && req.query_string().contains("resize=true");
+
+            if should_resize {
+                println!("Hier wird ein Bild verkleinert");
+            }
+
+            srv.call(req).map(|res| {
+                res
+            })
+        })
+        .wrap(middleware::Compress::default())
     })
     .bind(&addr)?
     .run()

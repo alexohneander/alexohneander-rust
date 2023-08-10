@@ -7,7 +7,7 @@ pub fn Navigation(cx: Scope) -> impl IntoView {
         <nav>
             <a href="/">"Home"</a>
             <a href="/about">"About"</a>
-            <a href="/404">"404"</a>
+            <a href="/blog">"Blog"</a>
         </nav>
     }
 }

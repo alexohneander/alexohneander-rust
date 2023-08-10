@@ -9,6 +9,7 @@ pub fn HomePage(cx: Scope) -> impl IntoView {
     view! { cx,
         <Navigation/>
         <h1>"Moin 👋"</h1>
+        <img src="assets/img/logo.png?resize=true" />
         <p>"I’m Alex, DevOps/Network architect and software developer. I’m currently working as a DevOps Engineer at Materna. I help developers build a faster web and teach about web development, Kubernetes, network security and more."</p>
     }
 }

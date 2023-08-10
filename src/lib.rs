@@ -1,6 +1,7 @@
 pub mod app;
 pub mod components;
 pub mod views;
+// pub mod middlewares;
 
 use cfg_if::cfg_if;
 
