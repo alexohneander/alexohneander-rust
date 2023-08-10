@@ -3,6 +3,8 @@
 async fn main() -> std::io::Result<()> {
     use actix_files::Files;
     use actix_web::*;
+    use actix_web::middleware::Logger;
+    use env_logger::Env;        
     use leptos::*;
     use leptos_actix::{generate_route_list, LeptosRoutes};
     use leptos_start::app::*;
@@ -11,6 +13,9 @@ async fn main() -> std::io::Result<()> {
     let addr = conf.leptos_options.site_addr;
     // Generate the list of routes in your Leptos App
     let routes = generate_route_list(|cx| view! { cx, <App/> });
+
+    // Initialize the logger
+    env_logger::init_from_env(Env::default().default_filter_or("info"));
 
     HttpServer::new(move || {
         let leptos_options = &conf.leptos_options;
@@ -30,6 +35,7 @@ async fn main() -> std::io::Result<()> {
                 |cx| view! { cx, <App/> },
             )
             .app_data(web::Data::new(leptos_options.to_owned()))
+        .wrap(Logger::default())
         //.wrap(middleware::Compress::default())
     })
     .bind(&addr)?
