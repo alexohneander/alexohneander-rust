@@ -2,12 +2,14 @@ use leptos::*;
 
 use crate::components::navigation::Navigation;
 use crate::components::responsive_image::ResponsiveImage;
+use crate::components::footer::Footer;
 
 /// Renders the home page of your application.
 #[component]
 pub fn HomePage(cx: Scope) -> impl IntoView {
     view! { cx,
         <Navigation/>
+
         <div id="top" class="page" role="document">
             <main role="main">
                 <section id="text">
@@ -22,5 +24,7 @@ pub fn HomePage(cx: Scope) -> impl IntoView {
                 </section>
             </main>
         </div>
+
+        <Footer/>
     }
 }

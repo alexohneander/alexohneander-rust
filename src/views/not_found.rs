@@ -21,6 +21,9 @@ pub fn NotFound(cx: Scope) -> impl IntoView {
 
     view! { cx,
         <Navigation/>
-        <h1>"Not Found"</h1>
+        
+        <div id="top" class="page" role="document">
+            <h1>"Not Found"</h1>
+        </div>
     }
 }

@@ -1,12 +1,20 @@
+// Open Props: https://open-props.style/
 @import "https://unpkg.com/open-props"; 
 @import "https://unpkg.com/open-props/normalize.min.css"; 
 
+// Navigation
 @import 'navigation.scss';
+@import 'footer.scss';
 
 body {
+    font-family: var(--font-sans);
     margin: 0px;
-
     border-radius: var(--radius-conditional-3);
     border: var(--border-size-5) solid var(--indigo-9);
 }
 
+.page {
+    max-width: 1180px;
+    margin: var(--size-10) auto;
+    padding: var(--size-10);
+}

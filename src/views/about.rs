@@ -10,6 +10,9 @@ pub fn AboutPage(cx: Scope) -> impl IntoView {
         <Title text="Alex Wellnitz DevOps/Software Engineer - About Me"/>
 
         <Navigation/>
-        <h1>"Welcome to Leptos!"</h1>
+        
+        <div id="top" class="page" role="document">
+            <h1>"Welcome to Leptos!"</h1>
+        </div>
     }
 }
