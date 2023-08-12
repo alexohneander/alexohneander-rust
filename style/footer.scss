@@ -23,3 +23,15 @@ footer{
         }
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    footer{
+        a{
+            color: var(--grey-0);
+
+            &:visited{
+                color: var(--grey-0);
+            }
+        }
+    }
+}

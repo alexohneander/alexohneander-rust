@@ -23,3 +23,15 @@ nav{
         }
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    nav{
+        a{
+            color: var(--grey-0);
+
+            &:visited{
+                color: var(--grey-0);
+            }
+        }
+    }
+}
