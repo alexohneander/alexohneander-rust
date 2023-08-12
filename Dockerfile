@@ -40,4 +40,4 @@ ENV LEPTOS_SITE_ADDR="0.0.0.0:8080"
 ENV LEPTOS_SITE_ROOT="site"
 EXPOSE 8080
 # Run the server
-CMD ["/app/leptos_website"]
+CMD ["/app/leptos_start"]
