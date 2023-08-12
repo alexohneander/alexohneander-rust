@@ -1,5 +1,12 @@
+@import "https://unpkg.com/open-props"; 
+@import "https://unpkg.com/open-props/normalize.min.css"; 
+
 @import 'navigation.scss';
 
 body {
+    margin: 0px;
+
+    border-radius: var(--radius-conditional-3);
+    border: var(--border-size-5) solid var(--indigo-9);
 }
 
