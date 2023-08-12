@@ -11,9 +11,7 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Install Leptos
@@ -24,3 +22,11 @@ jobs:
       run: cargo leptos build --release
     - name: Run tests
       run: cargo test --verbose
+  build-container:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build Image
+      run: docker build -t alexohneander/alexohneander-rust:latest .
+    - name: Push Image
+      run: docker push alexohneander/alexohneander-rust:latest
