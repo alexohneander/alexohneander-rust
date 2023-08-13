@@ -1,6 +1,8 @@
 use leptos::*;
+use leptos_meta::*;
 
 use crate::components::navigation::Navigation;
+use crate::components::footer::Footer;
 
 /// 404 - Not Found
 #[component]
@@ -20,10 +22,14 @@ pub fn NotFound(cx: Scope) -> impl IntoView {
     }
 
     view! { cx,
+        <Title text="Page not found - Alex Wellnitz DevOps/Software Engineer"/>
+
         <Navigation/>
         
         <div id="top" class="page" role="document">
             <h1>"Not Found"</h1>
         </div>
+
+        <Footer/>
     }
 }

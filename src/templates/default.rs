@@ -1,5 +1,4 @@
 use leptos::*;
-use leptos_meta::*;
 
 use crate::components::navigation::Navigation;
 use crate::components::responsive_image::ResponsiveImage;
@@ -7,10 +6,8 @@ use crate::components::footer::Footer;
 
 /// Renders the home page of your application.
 #[component]
-pub fn HomePage(cx: Scope) -> impl IntoView {
+pub fn DefaultTemplate(cx: Scope) -> impl IntoView {
     view! { cx,
-        <Title text="Startpage - Alex Wellnitz DevOps/Software Engineer"/>
-
         <Navigation/>
 
         <div id="top" class="page" role="document">
