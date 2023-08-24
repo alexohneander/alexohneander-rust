@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ include "alexohneander-rust.fullname" . }}
   labels:
-    {{- include "alexohneander-rust.labels" . | nindent 4 }}
+    app: {{ include "alexohneander-rust.name" . }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "alexohneander-rust.selectorLabels" . | nindent 4 }}
+    matchLabels:
+      app: {{ include "alexohneander-rust.name" . }}
