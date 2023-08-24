@@ -50,7 +50,7 @@ ingress:
     - host: dev.alexohneander.de
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls: 
    - secretName: dev.alexohneander.de
      hosts:
