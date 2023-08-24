@@ -8,6 +8,9 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  selector:
+    matchLabels:
+      app: {{ include "alexohneander-rust.name" . }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
