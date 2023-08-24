@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "alexohneander-rust.fullname" . }}
+  labels:
+    {{- include "alexohneander-rust.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "alexohneander-rust.selectorLabels" . | nindent 4 }}
