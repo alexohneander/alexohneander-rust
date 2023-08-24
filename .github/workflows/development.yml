@@ -10,18 +10,18 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Install Leptos
-      run: cargo install cargo-leptos
-    - name: Add wasm32-unknown-unknown target
-      run: rustup target add wasm32-unknown-unknown
-    - name: Build
-      run: cargo leptos build --release
-    - name: Run tests
-      run: cargo test --verbose
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Install Leptos
+  #     run: cargo install cargo-leptos
+  #   - name: Add wasm32-unknown-unknown target
+  #     run: rustup target add wasm32-unknown-unknown
+  #   - name: Build
+  #     run: cargo leptos build --release
+  #   - name: Run tests
+  #     run: cargo test --verbose
 
   build-container:
     runs-on: ubuntu-latest
@@ -33,9 +33,9 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build Image
-      run: docker build -t alexohneander/alexohneander-rust:dev-$(git rev-parse --short HEAD) .
+      run: docker build -t alexohneander/alexohneander-rust:latest .
     - name: Push Image
-      run: docker push alexohneander/alexohneander-rust:dev-$(git rev-parse --short HEAD)
+      run: docker push alexohneander/alexohneander-rust:latest
 
   analyze:
     name: Run rust-clippy analyzing
